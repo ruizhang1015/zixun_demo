@@ -46,7 +46,17 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
   Widget bottomNavigation(int currentTabIndex) {
     return Container(
       height: kToolbarHeight,
-      color: Colors.white,
+      decoration: const BoxDecoration(
+        color: Colors.white,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey,
+            offset: Offset(0, 2),
+            blurRadius: 4,
+            spreadRadius: 0,
+          ),
+        ],
+      ),
       child: Row(
         children: vm.tabs
             .mapIndexed(
