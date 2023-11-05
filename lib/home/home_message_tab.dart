@@ -280,7 +280,7 @@ class _ViewMode {
           isReceived: true,
           avatar: "",
           time: DateTime.now().millisecondsSinceEpoch,
-          text: "这是新消息这是新消息这是新消息这是新消息这是新消息这是新消息这是新消息这是新消息",
+          text: "这是新消息${DateTime.now()}",
         ),
       );
       messages.value = [...messages.value ?? []];
