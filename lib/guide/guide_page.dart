@@ -51,7 +51,7 @@ class _GuidePageState extends State<GuidePage> {
   Widget buildPageView() {
     return PageView(
       onPageChanged: onPageChanged,
-      children: guideData.map((e) => Image.asset("assets/images/guide.png", fit: BoxFit.contain)).toList(),
+      children: guideData.map((e) => Image.asset(e, fit: BoxFit.contain)).toList(),
     );
   }
 
