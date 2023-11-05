@@ -210,8 +210,10 @@ class _HomeMessageTabState extends State<HomeMessageTab> with AutomaticKeepAlive
   void dispose() {
     super.dispose();
     vm.newMsg.removeListener(onNewMessage);
+    vm.dispose();
   }
 }
+
 // todo zrz 暂时定义到这里
 ///使用viewmodel管理状态
 class _ViewMode {
@@ -220,6 +222,9 @@ class _ViewMode {
 
   //收到新消息,用于列表自动滚动
   ValueNotifier<int?> newMsg = ValueNotifier(null);
+
+  // todo zrz 模拟接收新消息
+  bool receivingMsg = true;
 
   ///请求数据
   void fetchData() async {
@@ -261,9 +266,12 @@ class _ViewMode {
       ),
     ];
     messages.value = msgs;
+    mockReceiveNewMessage();
+  }
 
-    // todo zrz 模式收到新的消息
-    while (true) {
+  // todo zrz 模式收到新的消息
+  void mockReceiveNewMessage() async {
+    while (receivingMsg) {
       await Future.delayed(const Duration(seconds: 5));
       messages.value?.insert(
         0,
@@ -279,7 +287,12 @@ class _ViewMode {
       newMsg.value = messages.value?.length;
     }
   }
+
+  void dispose() {
+    receivingMsg = false;
+  }
 }
+
 // todo zrz 暂时定义到这里
 ///对话的对象
 class _Messenger {
@@ -288,6 +301,7 @@ class _Messenger {
 
   _Messenger(this.name, this.avatar);
 }
+
 // todo zrz 暂时定义到这里
 ///消息体
 class _Message {
@@ -305,6 +319,7 @@ class _Message {
   _Message(
       {required this.type, required this.isReceived, this.text, this.imgUrl, required this.avatar, required this.time});
 }
+
 // todo zrz 暂时定义到这里
 ///消息类型
 enum _MessageType {
