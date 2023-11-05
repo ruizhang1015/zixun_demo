@@ -101,7 +101,7 @@ class _Indicator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //找到父节点拿到状态
-    final parentState = context.findRootAncestorStateOfType<_GuidePageState>()!;
+    final parentState = context.findAncestorStateOfType<_GuidePageState>()!;
     return ValueListenableBuilder<int>(
       valueListenable: parentState.currentIndex,
       builder: (_, val, __) {
