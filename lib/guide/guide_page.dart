@@ -92,7 +92,7 @@ class _GuidePageState extends State<GuidePage> {
   }
 
   void onSkip() {
-    Navigator.pushNamed(context, RoutePath.home);
+    Navigator.pushReplacementNamed(context, RoutePath.home);
   }
 }
 

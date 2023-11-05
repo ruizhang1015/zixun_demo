@@ -37,7 +37,7 @@ class _SplashPageState extends State<SplashPage> {
     // todo zrz 模拟splash广告停留
     await Future.delayed(const Duration(milliseconds: 500));
     if (mounted) {
-      Navigator.pushNamed(context, RoutePath.guide);
+      Navigator.pushReplacementNamed(context, RoutePath.guide);
     }
   }
 }
