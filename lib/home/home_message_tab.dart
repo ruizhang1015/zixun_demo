@@ -100,7 +100,7 @@ class _HomeMessageTabState extends State<HomeMessageTab> with AutomaticKeepAlive
   void onNewMessage() async {
     if ((vm.newMsg.value ?? 0) > 0) {
       //收到新消息自动滚动
-      lvController.jumpTo(0);
+      lvController.animateTo(0, duration: const Duration(milliseconds: 200), curve: Curves.linear);
     }
   }
 
@@ -143,10 +143,13 @@ class _HomeMessageTabState extends State<HomeMessageTab> with AutomaticKeepAlive
                   ),
                 )
               // todo zrz 模拟图片类型消息
-              : Container(
-                  color: Colors.blue,
-                  width: 200,
-                  height: 400,
+              : ClipRRect(
+                  borderRadius: BorderRadius.circular(8),
+                  child: Container(
+                    color: Colors.blue,
+                    width: 200,
+                    height: 400,
+                  ),
                 ),
         ),
       ],
@@ -185,10 +188,13 @@ class _HomeMessageTabState extends State<HomeMessageTab> with AutomaticKeepAlive
                   ),
                 )
               // todo zrz 模拟图片类型消息
-              : Container(
-                  color: Colors.blue,
-                  width: 200,
-                  height: 400,
+              : ClipRRect(
+                  borderRadius: BorderRadius.circular(8),
+                  child: Container(
+                    color: Colors.blue,
+                    width: 200,
+                    height: 400,
+                  ),
                 ),
         ),
         const SizedBox(width: 8),
