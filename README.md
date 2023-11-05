@@ -1,6 +1,6 @@
 # zixun_demo
 
-紫迅科技面试测试项目
+测试项目
 
 ## Getting Started
 
